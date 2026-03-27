@@ -1,0 +1,4 @@
+Ex 6.1
+- Khi chọn "Cancel", sẽ mặc định user chọn "No"
+Do dùng hàm logic nếu YES_OPTION thì sẽ mặc định về "Yes", còn lại là "No"
+- Thay 2 opts "Yes", "No" sau "?" tại dòng 8 thành 2 opts mới tương ứng.
