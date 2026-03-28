@@ -7,7 +7,7 @@ public class array {
         int n = sc.nextInt();
         double[] arr = new double[n];
 
-        System.out.println("Enter " + n + " numeric values:");
+        System.out.println("Enter " + n + " nums in Array:");
         for (int i = 0; i < n; i++) {
             arr[i] = sc.nextDouble();
         }
