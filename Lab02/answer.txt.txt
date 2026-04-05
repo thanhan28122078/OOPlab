@@ -1,0 +1,4 @@
+Câu 8:
+Không thể. Vì Java phân biệt các phương thức nạp chồng bằng tên phương thức và kiểu dữ liệu của các tham số.
+Vì cả hai phương thức trong câu hỏi đều có một tham số và chung kiểu là String. 
+Nên Java sẽ thấy 2 phương thức này có chữ ký (DigitalVideoDisc(String)) giống hệt nhau và không phân biệt được đó là title hay category khi bạn truyền một chuỗi vào.
