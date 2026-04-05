@@ -13,9 +13,11 @@ public class Aims {
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Aladin",
                 "Animation", "John Musker",90,18.99f);
 
-        Order.display();
+        System.out.println("Total Cost is: ");
+        System.out.println(Order.totalCost());
 
         Order.removeDigitalVideoDisc(dvd2);
-        Order.display();
+        System.out.println("Total Cost after removing is: " + Order.totalCost());
+        Order.removeDigitalVideoDisc(dvd2);
     }
 }

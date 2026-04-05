@@ -5,6 +5,10 @@ public class Cart {
             new DigitalVideoDisc[MAX];
 
     public void addDigitalVideoDisc(DigitalVideoDisc item){
+        if (item == null) {
+            System.out.println("Cannot add null disc");
+            return;
+        }
         if(qtyOrdered == MAX){
             System.out.println("The cart is almnost full");
         }else{
@@ -13,23 +17,7 @@ public class Cart {
             System.out.println("The dvd with title " + item.getTitle() + " has been added to the cart");
         }
     }
-    public void addDigitalVideoDisc(DigitalVideoDisc dvd1, DigitalVideoDisc dvd2){
-        if (qtyOrdered == MAX){
-            System.out.println("Do not have enough space to add both DVD");
-        }else{
-            if(qtyOrdered == MAX - 1){
-                itemOrdered[qtyOrdered++]=dvd1;
-                System.out.println("The dvd with title " + dvd1.getTitle() + " has been added to the cart");
-                System.out.println("After add dvd1,the cart is full, cant not add dvd2");
-            }else {
-                itemOrdered[qtyOrdered++] = dvd1;
-                System.out.println("The dvd with title " + dvd1.getTitle() + " has been added to the cart");
-                itemOrdered[qtyOrdered++] = dvd2;
-                System.out.println("The dvd with title " + dvd2.getTitle() + " has been added to the cart");
-            }
 
-        }
-    }
 
     public void removeDigitalVideoDisc(DigitalVideoDisc item) {
         boolean found = false;
@@ -60,13 +48,5 @@ public class Cart {
             total+=itemOrdered[i].getCost();
         }
         return total;
-    }
-
-    public void display() {
-        System.out.println("The cart has " + qtyOrdered + " DVDs:");
-        for (int i = 0; i < qtyOrdered; i++) {
-            System.out.println((i + 1) + ". " + itemOrdered[i].getTitle() + " - " + itemOrdered[i].getCost());
-        }
-        System.out.println("Total Cost: " + totalCost());
     }
 }
