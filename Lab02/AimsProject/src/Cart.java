@@ -83,6 +83,7 @@ public class Cart {
         System.out.println("Ordered Items:");
         int count =1;
         for (DigitalVideoDisc item: itemOrdered){
+            if (item == null) break;
             System.out.println(count+". DVD - "+item.getTitle()+" - "+item.getCategory()+" - "+item.getDirector()+" - "+item.getLength()+": "+item.getCost()+"$");
             count++;
         }
