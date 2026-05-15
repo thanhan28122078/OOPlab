@@ -7,6 +7,6 @@ public class StoreTest {
 
         store.addDVD(dvd1);
         store.addDVD(dvd2);
-        store.addDVD(dvd3);
+        store.addDVD(dvd3);git
     }
 }
