@@ -1,3 +1,5 @@
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+
 public class StoreTest {
     static void main() {
         Store store = new Store();

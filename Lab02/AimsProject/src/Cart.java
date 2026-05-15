@@ -1,3 +1,5 @@
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+
 public class Cart {
     private int qtyOrdered =0;
     public static final int MAX = 20;

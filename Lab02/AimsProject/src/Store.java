@@ -1,3 +1,5 @@
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+
 public class Store {
     public DigitalVideoDisc itemsInStore[] = new DigitalVideoDisc[100];
     private int qtyInStore = 0;

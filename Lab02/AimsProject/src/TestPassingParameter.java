@@ -1,3 +1,5 @@
+import hust.soict.dsai.aims.media.DigitalVideoDisc;
+
 public class TestPassingParameter {
     static void main() {
         DigitalVideoDisc jungleDVD = new DigitalVideoDisc("Jungle");
