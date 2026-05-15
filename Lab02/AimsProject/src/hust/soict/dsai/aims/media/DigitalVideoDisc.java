@@ -1,6 +1,6 @@
 package hust.soict.dsai.aims.media;
 
-public class DigitalVideoDisc extends Media{
+public class DigitalVideoDisc extends CompactDisc{
     private String director;
     private int length;
     private static int nbDigitalVideoDiscs = 0;
