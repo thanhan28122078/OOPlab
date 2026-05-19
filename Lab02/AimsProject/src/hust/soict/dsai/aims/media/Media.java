@@ -6,8 +6,13 @@ public abstract class Media {
     private String category;
     private float cost;
 
-    public Media() {
-        super();
+    public Media() {}
+
+    public Media(int id, String title, String category, float cost) {
+        this.id = id;
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
     }
 
     public int getId() { return id; }
@@ -21,4 +26,19 @@ public abstract class Media {
 
     public float getCost() { return cost; }
     public void setCost(float cost) { this.cost = cost; }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || !(obj instanceof Media)) {
+            return false;
+        }
+        Media other = (Media) obj;
+        if (this.title == null) {
+            return other.title == null;
+        }
+        return this.title.equalsIgnoreCase(other.title);
+    }
 }
