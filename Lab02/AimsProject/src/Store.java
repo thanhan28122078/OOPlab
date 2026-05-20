@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+
 import hust.soict.dsai.aims.media.Media;
 
 public class Store {
@@ -27,6 +29,14 @@ public class Store {
         } else {
             System.out.println("Sản phẩm '" + media.getTitle() + "' không tồn tại trong cửa hàng.");
         }
+    }
+    public Media searchByTitle(String title) {
+        for (Media media : itemsInStore) {
+            if (media.getTitle().equalsIgnoreCase(title.trim())) {
+                return media;
+            }
+        }
+        return null;
     }
 
     public void printStore() {

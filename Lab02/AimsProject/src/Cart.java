@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import hust.soict.dsai.aims.media.Media;
+import java.util.Collections;
 
 public class Cart {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
@@ -38,6 +39,14 @@ public class Cart {
             total += media.getCost(); // Duyệt qua từng Media và lấy giá tiền của nó
         }
         return total;
+    }
+    public void sortByTitle() {
+        Collections.sort(this.itemsOrdered, Media.COMPARE_BY_TITLE_COST);
+        System.out.println("Đã sắp xếp giỏ hàng theo Title.");
+    }
+    public void sortByCost() {
+        Collections.sort(this.itemsOrdered, Media.COMPARE_BY_COST_TITLE);
+        System.out.println("Đã sắp xếp giỏ hàng theo Cost.");
     }
 
     public void printCart() {
