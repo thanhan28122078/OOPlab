@@ -1,0 +1,8 @@
+1. Ta nên triển khai interface ở lớp cha. Vì Khi giỏ hàng chứa một danh sách trộn lẫn cả Sách, CD, DVD, việc đặt Comparable ở lớp cha giúp toàn bộ các lớp con tự động có khả năng so sánh dữ liệu với nhau. Nhờ đó, các hàm công cụ như Collections.sort() mới có thể nhận diện và sắp xếp được danh sách chung.
+2. So sánh theo thứ tự ưu tiên:
+- B1: So sánh thuộc tính Title theo bảng chữ cái. Nếu khác nhau, lấy kết quả này để xếp thứ tự.
+- B2: Nếu trùng Title, chương trình sẽ so sánh tiếp thuộc tính Cost theo chiều giảm dần để phân định.
+3. Không thể. Vì Comparable chỉ định nghĩa một thứ tự tự nhiên duy nhất và cố định cho class. Vì chỉ được viết đúng một hàm compareTo(), nên ta không thể bắt hệ thống vừa ưu tiên xếp theo tên, vừa ưu tiên xếp theo giá cùng một lúc.
+4. Sử dụng tính Overriding và ép kiểu động tại lớp con.
+- Tại class cha Media: Giữ nguyên hàm compareTo() với quy tắc so sánh Title rồi Cost cho các sản phẩm nói chung.
+- Tại class con DigitalVideoDisc: Override lại hàm compareTo(). DVD vẫn sẽ so sánh Title trước. Nếu trùng Title, nó sẽ kiểm tra xem đối tượng đối chiếu có phải là DVD không. Nếu đúng, nó lồng thêm bước so sánh Length giảm dần vào giữa, trước khi xét đến bước cuối cùng là so sánh Cost.
