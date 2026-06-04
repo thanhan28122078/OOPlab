@@ -1,0 +1,28 @@
+Programming with AWT and Swing is quite similar (similar elements including container/components, and 
+event-handling). However, there are some differences that you need to note: 
+o Compare the top-level containers in Swing and AWT 
+o Compare the class name of components in AWT and the corresponding class’s name in Swing 
+o Compare the event-handling of Swing and AWT applications 
+The resulting appearances of the applications developed using Swing and AWT might be different as well. 
+Make comparisons. 
+
+
+1. Các Container Cấp Cao (Top-Level Containers):
+AWT: Các container cấp cao chủ yếu là Frame, Dialog, và Window. Chúng là các "heavyweight component", nghĩa là mỗi instance được ánh xạ tới một cửa sổ thực sự của hệ điều hành, do đó giao diện và hành vi của chúng bị chi phối bởi hệ điều hành đó.
+Swing: Sử dụng JFrame, JDialog, và JWindow, là các phiên bản cải tiến. Mặc dù bản thân các top-level container này vẫn cần một peer của hệ điều hành để hiển thị, chúng chứa một contentPane nơi các component được thêm vào, thay vì thêm trực tiếp như AWT. Cấu trúc này, cùng với JRootPane, mang lại sự linh hoạt hơn.
+
+2.Tên Lớp của Các Component:
+AWT: Tên các component như Button, Label, TextField. Đây là các heavyweight component, dựa vào các đối tượng đồ họa gốc của hệ điều hành.
+Swing: Các component tương ứng thường có tiền tố "J" (JButton, JLabel, JTextField). Đa số các component Swing là "lightweight", được vẽ hoàn toàn bằng Java, cho phép tùy biến cao hơn và không phụ thuộc vào peer của hệ điều hành cho việc hiển thị. Bộ component của Swing cũng phong phú hơn AWT.
+
+3.Xử Lý Sự Kiện:
+Cả AWT và Swing đều sử dụng mô hình "delegation event model" với các interface Listener (ActionListener, MouseListener, etc.).
+Swing giới thiệu Event Dispatch Thread (EDT), một luồng duy nhất chịu trách nhiệm xử lý tất cả các tương tác với GUI. Điều này đảm bảo an toàn luồng và tránh xung đột khi cập nhật giao diện, một cải tiến đáng kể so với AWT. Swing cũng hỗ trợ lớp Action để quản lý các hành động người dùng một cách hiệu quả hơn.
+
+4.Giao Diện Kết Quả (Appearance / Look and Feel):
+AWT: Giao diện của ứng dụng AWT hoàn toàn phụ thuộc vào hệ điều hành (native look and feel). Điều này dẫn đến sự thiếu nhất quán về mặt hình ảnh khi ứng dụng chạy trên các nền tảng khác nhau.
+Swing: Cung cấp cơ chế Pluggable Look and Feel (PLAF), cho phép thay đổi toàn bộ giao diện của ứng dụng mà không cần sửa đổi mã. Swing bao gồm các look and feel như Metal (mặc định, độc lập nền tảng), Nimbus, và các look and feel mô phỏng hệ điều hành. Điều này cho phép ứng dụng Swing có giao diện nhất quán trên mọi nền tảng hoặc được tùy chỉnh theo ý muốn.
+
+5.Kết luận:
+AWT phù hợp với các ứng dụng đơn giản, yêu cầu giao diện người dùng cơ bản và mong muốn giao diện "native" của hệ điều hành. Tuy nhiên, nó hạn chế về số lượng component và khả năng tùy biến.
+Swing cung cấp một bộ công cụ phong phú hơn, linh hoạt hơn với các component lightweight, khả năng tùy biến giao diện mạnh mẽ thông qua PLAF, và cơ chế xử lý sự kiện an toàn hơn với EDT. Do đó, Swing là lựa chọn ưu tiên cho việc phát triển các ứng dụng desktop Java phức tạp và hiện đại hơn.

@@ -1,0 +1,17 @@
+Question 1: Is JAVA a Pass by Value or a Pass by Reference programming language?
+Java là một ngôn ngữ lập trình sử dụng cơ chế truyền tham trị (pass-by-value).
+Ngay cả khi ta truyền một đối tượng vào phương thức, thì giá trị được truyền vào thực chất là bản sao của tham chiếu đến đối tượng đó, chứ không phải là bản thân đối tượng hoặc tham chiếu gốc. Vì vậy, mọi thay đổi trên bản sao tham chiếu này bên trong phương thức sẽ không ảnh hưởng đến tham chiếu ban đầu bên ngoài phương thức.
+
+Question 2: After the call of swap(jungleDVD, cinderellaDVD) why does the title of these two objects still remain?
+Lý do là vì Java chỉ truyền bản sao của tham chiếu đối tượng vào phương thức.
+Trong phương thức swap, hai đối tượng jungleDVD và cinderellaDVD được truyền vào, nhưng chỉ là bản sao của các tham chiếu. Khi ta hoán đổi hai biến tham chiếu cục bộ bên trong phương thức (ví dụ: DigitalVideoDisc tmp = o1; o1 = o2; o2 = tmp;), thì chỉ các tham chiếu cục bộ bị đổi chỗ, còn hai đối tượng thực sự bên ngoài (jungleDVD và cinderellaDVD) không bị ảnh hưởng, do ta không thao tác trực tiếp lên đối tượng mà chỉ thao tác trên bản sao của tham chiếu.
+
+Question 3: After the call of changeTitle(jungleDVD, cinderellaDVD.getTitle()) why is the title of the JungleDVD changed?
+Trong phương thức changeTitle, đối tượng jungleDVD được truyền vào như là một bản sao của tham chiếu, nhưng ta vẫn có thể thao tác lên nội dung của đối tượng đó.
+Ví dụ, khi gọi dvd.setTitle(title);, thì nội dung (trường title) của đối tượng mà dvd trỏ đến (chính là jungleDVD) sẽ bị thay đổi. Điều này là hợp lệ vì bản sao của tham chiếu vẫn trỏ đến cùng một đối tượng trong bộ nhớ, nên việc thay đổi dữ liệu bên trong đối tượng sẽ có tác động trực tiếp.
+
+Mặc dù sau đó có dòng lệnh dvd = new DigitalVideoDisc(oldTitle);, tạo ra một đối tượng mới và gán cho biến dvd, thì đây chỉ là thao tác thay đổi biến tham chiếu cục bộ, không làm ảnh hưởng đến biến jungleDVD bên ngoài phương thức. Do đó, thay đổi về title vẫn được duy trì.
+
+Question 4: If you create a constructor method to build a DVD by title then create a constructor method to build a DVD by category. Does JAVA allow you to do this?
+Java chỉ cho phép định nghĩa nhiều constructor (phương thức khởi tạo) nếu chúng có signature khác nhau.
+Java không cho phép ta làm điều này bởi 2 phương thức có cùng số lượng tham số và cùng kiểu dữ liệu. Để giải quyết vấn đề này có thể phân biệt bằng số lượng hoặc loại tham số của các constructor để tránh trùng lặp.

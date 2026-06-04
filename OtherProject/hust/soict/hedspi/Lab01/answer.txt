@@ -1,0 +1,31 @@
+6.1
+- Ta có:
+JOptionPane.YES_OPTION có giá trị 0.
+JOptionPane.NO_OPTION có giá trị 1.
+JOptionPane.CANCEL_OPTION có giá trị 2. 
+Nếu người dùng chọn "Cancel", biến option sẽ nhận giá trị JOptionPane.CANCEL_OPTION, tức là option == 2
+Tuy nhiên, lệnh trên chỉ kiểm tra option == JOptionPane.YES_OPTION, nếu không, mặc định sẽ hiển thị "No".
+Do đó, nếu chọn "Cancel", hộp thoại sẽ hiển thị:
+"You've chosen: No"
+
+- Có thể tùy chỉnh các lựa chọn trong JOptionPane bằng cách sử dụng phương thức showOptionDialog, cho phép đặt tên nút theo ý muốn.
+Ví dụ như ta có thể dùng code sau:
+" import javax.swing.JOptionPane;
+
+public class CustomOptionDialog {
+    public static void main(String[] args) {
+        String[] options = {"I do", "I don't"};
+        int choice = JOptionPane.showOptionDialog(
+                null,
+                "20235633 - Trinh Thanh An \n Bạn có muốn đổi sang vé hạng nhất không?",
+                "Chọn một tùy chọn",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);  // Mặc định chọn "Yes"
+
+        JOptionPane.showMessageDialog(null, "Bạn đã chọn: " + options[choice]);
+    }
+}"
+Code này đã được up trong file 
